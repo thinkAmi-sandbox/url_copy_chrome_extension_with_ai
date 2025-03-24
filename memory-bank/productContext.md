@@ -14,9 +14,9 @@ Chromeで表示しているページのURLについて、ブログ向けに参�
 - ショートカットキーについて、OSごとに以下を想定しています
   - OS別
     - Windows
-      - `Ctrl+C`
+      - `Ctrl+I`
     - macOS
-      - `Cmd+C`
+      - `Cmd+I`
   
 - markdown形式は以下とします。
   - `[<表示しているHTMLのtitleタグ>](<表示しているページのURL>)`

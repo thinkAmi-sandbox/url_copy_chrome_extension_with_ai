@@ -16,8 +16,8 @@
   "commands": {
     "copy-url-to-markdown": {
       "suggested_key": {
-        "default": "Ctrl+C",
-        "mac": "Command+C"
+        "default": "Ctrl+I",
+        "mac": "Command+I"
       },
       "description": "Copy URL and title to clipboard in Markdown format"
     }

@@ -16,7 +16,7 @@ We are developing a Chrome extension that copies the current URL and page title 
 
 - The extension will not include custom icon files
 - The extension will use Manifest V3 as per Chrome's requirements
-- The extension will use keyboard shortcuts (Ctrl+C on Windows, Cmd+C on macOS)
+- The extension will use keyboard shortcuts (Ctrl+I on Windows, Cmd+I on macOS)
 - The Markdown format will be: `[<page title>](<page URL>)`
 - The extension will use the activeTab and clipboardWrite permissions
 - The background script will handle the keyboard shortcut and send messages to the content script
