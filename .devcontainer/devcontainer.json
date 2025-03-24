@@ -1,0 +1,15 @@
+{
+  "name": "URL Copy",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "biomejs.biome",
+        "saoudrizwan.claude-dev"
+      ]
+    }
+  },
+  "onCreateCommand": "npm install"
+}

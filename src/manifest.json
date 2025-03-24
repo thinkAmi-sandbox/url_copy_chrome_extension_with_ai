@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "URL to Markdown Copier",
+  "version": "1.0",
+  "description": "Copies the current URL and page title in Markdown format to the clipboard",
+  "permissions": ["activeTab", "clipboardWrite"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "copy-url-to-markdown": {
+      "suggested_key": {
+        "default": "Ctrl+C",
+        "mac": "Command+C"
+      },
+      "description": "Copy URL and title to clipboard in Markdown format"
+    }
+  }
+}
