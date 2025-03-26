@@ -3,7 +3,10 @@
   "name": "URL to Markdown Copier",
   "version": "1.0",
   "description": "Copies the current URL and page title in Markdown format to the clipboard",
-  "permissions": ["activeTab", "clipboardWrite"],
+  "icons": {
+    "48": "icons/icon.png"
+  },
+  "permissions": ["activeTab", "clipboardWrite", "notifications"],
   "background": {
     "service_worker": "background.js"
   },

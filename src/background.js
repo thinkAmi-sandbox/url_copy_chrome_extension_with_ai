@@ -34,9 +34,30 @@ function copyToClipboard(title, url) {
 	// Send a message to the content script to copy the text to the clipboard
 	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
 		const activeTab = tabs[0];
-		chrome.tabs.sendMessage(activeTab.id, {
-			action: "copyToClipboard",
-			text: markdownText,
-		});
+		chrome.tabs.sendMessage(
+			activeTab.id,
+			{
+				action: "copyToClipboard",
+				text: markdownText,
+			},
+			(response) => {
+				// Check if there was an error (e.g., content script not loaded)
+				if (chrome.runtime.lastError) {
+					console.log(
+						"Error sending message to content script:",
+						chrome.runtime.lastError,
+					);
+
+					// Show a notification
+					chrome.notifications.create({
+						type: "basic",
+						iconUrl: chrome.runtime.getURL("icons/icon.png"),
+						title: "URL Copy Extension",
+						message:
+							"このタブでは拡張機能が正常に動作していません。タブをリロードしてください。",
+					});
+				}
+			},
+		);
 	});
 }

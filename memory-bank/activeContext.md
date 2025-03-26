@@ -14,19 +14,20 @@ We are developing a Chrome extension that copies the current URL and page title 
 
 ## Recent Decisions
 
-- The extension will not include custom icon files
+- The extension includes a custom icon file for notifications and the extension icon
 - The extension will use Manifest V3 as per Chrome's requirements
 - The extension will use keyboard shortcuts (Ctrl+I on Windows, Cmd+I on macOS)
 - The Markdown format will be: `[<page title>](<page URL>)`
-- The extension will use the activeTab and clipboardWrite permissions
+- The extension will use the activeTab, clipboardWrite, and notifications permissions
 - The background script will handle the keyboard shortcut and send messages to the content script
 - The content script will provide the page title from the document, handle clipboard operations, and display a flash message
 - The clipboard operation is performed in the content script using the Clipboard API with a fallback to document.execCommand
+- Error handling has been added for tabs where the content script is not loaded, showing a notification to reload the tab
 
 ## Implementation Details
 
-- **manifest.json**: Defines the extension metadata, permissions, and keyboard shortcuts
-- **background.js**: Listens for the keyboard shortcut, gets the active tab, formats the URL and title in Markdown format, and sends a message to the content script to copy it to the clipboard
+- **manifest.json**: Defines the extension metadata, permissions, keyboard shortcuts, and icons
+- **background.js**: Listens for the keyboard shortcut, gets the active tab, formats the URL and title in Markdown format, and sends a message to the content script to copy it to the clipboard. Includes error handling to show a notification with a custom icon if the content script is not available.
 - **content.js**: Runs on web pages, provides the page title when requested by the background script, handles clipboard operations using the Clipboard API with a fallback method, and displays a flash message when content is copied to the clipboard
 
 ## Next Steps
